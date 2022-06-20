@@ -1,0 +1,14 @@
+{
+  "EASY": {
+    "NUM_TILES": 4,
+    "TIME_ATTEMPT": 10
+  },
+  "MODERATE": {
+    "NUM_TILES": 6,
+    "TIME_ATTEMPT": 5
+  },
+  "DIFFICULT": {
+    "NUM_TILES": 12,
+    "TIME_ATTEMPT": 5
+  }
+}
