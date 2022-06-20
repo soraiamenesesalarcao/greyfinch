@@ -15,7 +15,7 @@ const Game = () => {
 			    <>
 			    	<Tile key={index} idTile={index} 
 			        	idGifToUse={el.id} gifURL={el.images.fixed_height.url} 
-			            time={10} correct={tilesCorrect} clicked1={clicked1} triggerClicked={triggerClicked} triggerTimerStopped={triggerTimerStopped} isDisabled={disabled}
+			            time={10} correct={tilesCorrect[index]} clicked1={clicked1} triggerClicked={triggerClicked} triggerTimerStopped={triggerTimerStopped} isDisabled={disabled}
 			        />
 			    </>
 			    );
@@ -35,15 +35,15 @@ const Game = () => {
 	      	var currentTiles = tilesCorrect
 		    if(clicked1[1] === clicked[1]){ //it's a match
 		    	console.log(currentTiles)
-		        currentTiles[clicked1[0]] = true
-		        currentTiles[clicked[0]] = true
+		        currentTiles[clicked1[0]] = "matched"
+		        currentTiles[clicked[0]] = "matched"
 		        setTilesCorrect(currentTiles)
 		        console.log(currentTiles)
 		       	setNumCorrectPairs(numCorrectPairs + 1)
 		    }
 		    else { //"its not a match"
-		    	currentTiles[clicked1[0]] = false
-		        currentTiles[clicked[0]] = false 
+		    	currentTiles[clicked1[0]] = "not matched"
+		        currentTiles[clicked[0]] = "not matched"
 		    	setTilesCorrect(currentTiles)
 		    }
 		    // TODO: should stop the timer of the first tile clicked

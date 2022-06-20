@@ -13,7 +13,6 @@ const Tile = ({idTile, idGifToUse, gifURL, time, correct, clicked1, triggerClick
 	const [idGif, setIdGif] = useState(idGifToUse);	// the id of the gif that should be loaded when clicked
 	const [img, setImage] = useState(gifURL);		// th eurl for the gif that should be loaded when clicked
 	const [clicked, setClicked] = useState(false)	// flag to know if the tile was clicked
-	const [matched, setMatched] = useState(correct)	// flag to know if the tile was clicked
 	const [showTime, setShowTime] = useState(time)	// how much time the tile should be visible
 	var timeout;
 
@@ -39,7 +38,10 @@ const Tile = ({idTile, idGifToUse, gifURL, time, correct, clicked1, triggerClick
 
 	return (
 		<>
-          <Button disabled={clicked || isDisabled} onClick={onClickHandler}><img src={!clicked? tile : img} alt="tile" height="100px" width="100px"/></Button>
+			{correct === 'not matched'? 
+				<Button disabled={clicked || isDisabled} onClick={onClickHandler}><img src={!clicked && correct? tile : img} alt="tile" height="100px" width="100px"/></Button>:
+				<Button disabled={true}><img src={img} alt="tile" height="100px" width="100px"/></Button>
+			}
 		</>
 	)
 }
